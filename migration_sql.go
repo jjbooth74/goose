@@ -161,7 +161,7 @@ func runSQLMigration(db *sql.DB, scriptFile string, v int64, direction bool) err
 				return err
 			}
 		}
-		if _, err := tx.Exec(GetDialect().insertVersionSQL(), v, direction); err != nil {
+		if _, err := tx.Exec(GetDialect().InsertVersionSQL(), v, direction); err != nil {
 			tx.Rollback()
 			return err
 		}
@@ -175,7 +175,7 @@ func runSQLMigration(db *sql.DB, scriptFile string, v int64, direction bool) err
 			return err
 		}
 	}
-	if _, err := db.Exec(GetDialect().insertVersionSQL(), v, direction); err != nil {
+	if _, err := db.Exec(GetDialect().InsertVersionSQL(), v, direction); err != nil {
 		return err
 	}
 

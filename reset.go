@@ -31,7 +31,7 @@ func Reset(db *sql.DB, dir string) error {
 }
 
 func dbMigrationsStatus(db *sql.DB) (map[int64]bool, error) {
-	rows, err := GetDialect().dbVersionQuery(db)
+	rows, err := GetDialect().DbVersionQuery(db)
 	if err != nil {
 		return map[int64]bool{}, createVersionTable(db)
 	}

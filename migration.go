@@ -78,7 +78,7 @@ func (m *Migration) run(db *sql.DB, direction bool) error {
 				return err
 			}
 		}
-		if _, err := tx.Exec(GetDialect().insertVersionSQL(), m.Version, direction); err != nil {
+		if _, err := tx.Exec(GetDialect().InsertVersionSQL(), m.Version, direction); err != nil {
 			tx.Rollback()
 			return err
 		}
