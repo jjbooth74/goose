@@ -20,6 +20,11 @@ func GetDialect() SQLDialect {
 	return dialect
 }
 
+// SetCustomDialect allows you to pass in a non-standard dialect.
+func SetCustomDialect(d *SQLDialect) {
+	dialect = d
+}
+
 // SetDialect sets the SQLDialect
 func SetDialect(d string) error {
 	switch d {
